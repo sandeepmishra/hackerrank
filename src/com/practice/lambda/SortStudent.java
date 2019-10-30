@@ -2,6 +2,7 @@ package com.practice.lambda;
 
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -12,7 +13,7 @@ public class SortStudent {
 				new Student("13", "ze", "EC"),
 				new Student("14", "fg", "ME"),
 				new Student("15", "jh", "CH"),
-				new Student("16", "io", "IT"));
+				new Student("16", "ze", "IT"));
 		
 		
 		/*Collections.sort(students, new Comparator<Student>() {
@@ -27,15 +28,18 @@ public class SortStudent {
 		// below line of code is equivalant to above one for sorting using lambda expression
 		// 
 		
-		Collections.sort(students, (Student s1, Student s2) -> s1.getSpecialization().compareTo(s2.getSpecialization()));
+		/*Collections.sort(students, (Student s1, Student s2) -> s1.getSpecialization().compareTo(s2.getSpecialization()));
 		
 		for(Student student: students) {
 			System.out.println(student);
-		}
-		
+		}*/
+		Comparator<Student> studentComparator = Comparator.comparing(Student::getName).thenComparing(Student::getId);
+
+		Collections.sort(students, studentComparator);
+
 		// filter out students specialization containing "C"
 		
-		students = students.stream().filter((student) -> student.getSpecialization().contains("C")).collect(Collectors.toList());
+		//students = students.stream().filter((student) -> student.getSpecialization().contains("C")).collect(Collectors.toList());
 		System.out.println(students);
 	}
 }

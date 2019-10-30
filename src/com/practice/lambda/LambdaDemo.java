@@ -22,6 +22,9 @@ public class LambdaDemo {
 		
 		greet.perform();
 		
+		SquareCalc calc = (a)-> a*a;
+		
+		System.out.println(calc.numbersquare(3));
 	}
 }
 
@@ -41,4 +44,9 @@ class HelloWorld implements Greeting
 	public void perform() {
 		System.out.println("Hello World!");
 	}
+}
+
+@FunctionalInterface
+interface SquareCalc{
+	public int numbersquare(int num);
 }

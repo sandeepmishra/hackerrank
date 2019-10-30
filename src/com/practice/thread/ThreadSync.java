@@ -1,8 +1,12 @@
 package com.practice.thread;
 
+import java.util.concurrent.atomic.AtomicInteger;
+
 public class ThreadSync {
 
 	public int count  =0;
+	AtomicInteger varCount = new AtomicInteger(0);
+	public volatile int var = 0;
 	public  synchronized int increment(){
 		return count++;
 	}
@@ -16,7 +20,8 @@ public class ThreadSync {
 			public void run() {
 				// TODO Auto-generated method stub
 				for(int i=0;i<10000;i++){
-					increment();
+					//increment();
+					varCount.incrementAndGet();
 				}
 			}
 		});
@@ -27,7 +32,8 @@ public class ThreadSync {
 			public void run() {
 				// TODO Auto-generated method stub
 				for(int i=0;i<10000;i++){
-					increment();
+					//increment();
+					varCount.incrementAndGet();
 				}
 			}
 		});
@@ -42,6 +48,7 @@ public class ThreadSync {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		System.out.println(count);
+		//System.out.println(count);
+		System.out.println(varCount.get());
 	}
 }

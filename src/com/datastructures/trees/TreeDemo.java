@@ -20,6 +20,10 @@ package com.datastructures.trees;
  *         The depth of v is the number of ancestors of v, excluding v itself.
  *         The height of a nonempty tree T is equal to the maximum depth of an
  *         external node of T.
+ *         
+ *         Types of Trees: Binary Tree, Binary Search Tree, AVL Tree, B-Tree
+ *         
+ *         Binary Tree: A tree whose elements have at most 2 children is called a binary tree. 
  * 
  */
 public class TreeDemo<E extends Comparable<E>> implements Tree<E> {
@@ -59,10 +63,10 @@ public class TreeDemo<E extends Comparable<E>> implements Tree<E> {
 
 		display(root.left);
 		System.out.println(root.data);
-		display(root.left);
+		display(root.right);
 	}
 
-	class Node<E> {
+	class Node<T> {
 		E data;
 		private Node<E> left;
 		private Node<E> right;
