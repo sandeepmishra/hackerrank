@@ -1,14 +1,10 @@
 package com.practice.thread;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
 public class ThreadEvenOdd {
 
 	public static void main(String[] args) {
 
-		int arr[][] = new int[2][];
+		int[][] arr = new int[2][];
 
 		for(int i=0;i<2;i++){
 			arr[i] = new int[2];
