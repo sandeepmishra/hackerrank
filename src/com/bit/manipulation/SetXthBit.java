@@ -42,5 +42,41 @@ public class SetXthBit {
     }
 
 
+    /**
+     * clear the bits of n between the MSB and the given k.
+     * shift 1 << k+1 and then flip bit ~(1<<k+1)
+     * result = n & (~(1<<k+1))
+     *          OR
+     * result = n & ((1<<k) -1)
+     *
+     * @param n
+     * @param k
+     * @return
+     */
+   public static int clearingBitFromKthBitTillMSB(int n, int k){
+        return n & ((1<<k) -1);
+   }
+
+
+   public static int sumBinaries(int p, int q){
+
+       return q;
+   }
+
+    public static int multiplyingBinaries(int p, int q){
+
+        return q;
+    }
+
+    public static int subtractingBinaries(int p, int q){
+
+        return q;
+    }
+
+    public static int dividingBinaries(int p, int q){
+
+        return q;
+    }
+
 
 }
