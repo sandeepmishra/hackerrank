@@ -10,22 +10,27 @@ public class OptionalCheck {
         String result =Optional.ofNullable(employee).flatMap(employee1 -> Optional.ofNullable(employee1.getAddress()))
                 .flatMap(address -> Optional.ofNullable(address.getNationality()))
                 .flatMap(nationality -> Optional.ofNullable(nationality.getCountry()))
-                .map(country -> country.getCountryCode()).orElse(null);
-                //.flatMap(country -> Optional.ofNullable(country.getCountryCode())).orElse(null);
+                .map(country -> country.getCountryCode().trim()).orElse(null);
+                //.map(country -> Optional.ofNullable(country.getCountryCode())).orElse(null);
         System.out.println(result);
         Address address=new Address();
         Nationality nationality =new Nationality();
         Country  country=new Country();
-        country.setCountryCode("IND");
+        //country.setCountryCode("IND");
         country.setCountryName("INDIA");
         nationality.setCountry(country);
         address.setNationality(nationality);
         employee.setAddress(address);
 
-        System.out.println(Optional.ofNullable(employee).flatMap(employee1 -> Optional.ofNullable(employee1.getAddress()))
+        result = Optional.ofNullable(employee).flatMap(employee1 -> Optional.ofNullable(employee1.getAddress()))
                 .flatMap(address1 -> Optional.ofNullable(address1.getNationality()))
                 .flatMap(nationality1 -> Optional.ofNullable(nationality1.getCountry()))
-                .map(country1 -> country1.getCountryName()).orElse(null));
+                .map(country1 -> country1.getCountryName().trim()).orElse(null);
+        System.out.println(result);
+
+        result = Optional.ofNullable(employee).map(employee1 -> employee1.getAddress()).map(Address::getNationality)
+                .map(Nationality::getCountry).map(countryVal-> countryVal.getCountryCode()).map(cntr->cntr.trim()).orElse(null);
+        System.out.println( result);
 
     }
 }

@@ -89,5 +89,13 @@ class CustomListImpl<E>{
 			this.data = data;
 			this.next=null;
 		}
-	}
+
+		 @Override
+		 public String toString() {
+			 return "Node{" +
+					 "next=" + next +
+					 ", data=" + data +
+					 '}';
+		 }
+	 }
 }

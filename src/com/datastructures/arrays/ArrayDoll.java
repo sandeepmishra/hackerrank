@@ -24,11 +24,10 @@ public class ArrayDoll {
 					boolean added = false;
 					if(arr[i]>li.get(j)) {
 						li.set(j, arr[i]);
-						added = true;
 					}else {
 						li.add(arr[i]);
-						added = true;
 					}
+					added = true;
 					if(added)
 						break;
 				}

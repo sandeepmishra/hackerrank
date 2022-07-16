@@ -40,16 +40,12 @@ public class ThreadEvenOddPrint {
 
 	public static void main(String[] args) {
 		ThreadEvenOddPrint th = new ThreadEvenOddPrint();
-		Thread t1 = new Thread(new Runnable() {
-
-			@Override
-			public void run() {
-				// TODO Auto-generated method stub
-				while (th.count < 10) {
-					th.printOdd();
-				}
-
+		Thread t1 = new Thread(() -> {
+			// TODO Auto-generated method stub
+			while (th.count < 10) {
+				th.printOdd();
 			}
+
 		});
 
 		Thread t2 = new Thread(new Runnable() {
